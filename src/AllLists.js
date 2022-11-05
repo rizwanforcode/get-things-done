@@ -8,9 +8,14 @@ const AllTasks = ({ lists, setLists }) => {
       <h2 className="task-list-title">My lists</h2>
       <ul className="task-list">
         {lists
-          .sort((a, b) => !(a.datetime - b.datetime))
+          .sort((a, b) => !(Number(a.datetime) - Number(b.datetime)))
           .map((list) => (
-            <ListItem list={list} key={list.id} />
+            <ListItem
+              setLists={setLists}
+              list={list}
+              lists={lists}
+              key={list.id}
+            />
           ))}
       </ul>
       <AddList lists={lists} setLists={setLists} />

@@ -20,7 +20,7 @@ const Task = ({ todos, todo, setTodos }) => {
             handleChecked(e);
           }}
         />
-        <label for={`tasks-${todo.id}`}>
+        <label htmlFor={`tasks-${todo.id}`}>
           <span className="custom-checkbox"></span>
           {todo.title}
         </label>

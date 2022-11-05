@@ -9,7 +9,7 @@ const Tasks = ({ lists, todos, setTodos }) => {
   return (
     <div className="tasks">
       {currentTodos.map((todo) => (
-        <Task todos={todos} todo={todo} setTodos={setTodos} />
+        <Task todos={todos} todo={todo} setTodos={setTodos} key={todo.id} />
       ))}
     </div>
   );
