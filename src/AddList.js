@@ -12,14 +12,12 @@ const AddList = ({ lists, setLists }) => {
       datetime: new Date(),
       active: true,
     };
-    console.log([
-      ...lists.map((list) => ({ ...list, active: false })),
-      newListObj,
-    ]);
     setLists([
       ...lists.map((list) => ({ ...list, active: false })),
       newListObj,
     ]);
+
+    setNewList("");
   };
 
   return (

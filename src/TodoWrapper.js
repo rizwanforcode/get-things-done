@@ -1,15 +1,11 @@
 import TodoBody from "./TodoBody";
 import TodoHeader from "./TodoHeader";
 
-const TodoWrapper = ({ currentTodos, lists, activeListId }) => {
+const TodoWrapper = ({ lists, setLists, todos, setTodos }) => {
   return (
     <div className="todo-list">
-      <TodoHeader
-        currentTodos={currentTodos}
-        lists={lists}
-        activeListId={activeListId}
-      />
-      <TodoBody currentTodos={currentTodos} activeListId={activeListId} />
+      <TodoHeader lists={lists} todos={todos} />
+      {/* <TodoBody /> */}
     </div>
   );
 };

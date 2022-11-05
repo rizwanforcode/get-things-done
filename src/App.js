@@ -35,7 +35,7 @@ function App() {
     {
       id: 1,
       title: "Youtube",
-      datetime: new Date(),
+      datetime: addMinutes(new Date(), 2),
       active: true,
     },
     {
@@ -58,18 +58,15 @@ function App() {
     },
   ]);
 
-  const [activeListId, setActiveListId] = useState(
-    lists.find((list) => list.active).id
-  );
-  const currentTodos = todos.filter((todo) => todo.listId === activeListId);
   return (
     <>
       <Header title={title} />
-      <AllLists lists={lists} setLists={setLists} activeListId={activeListId} />
+      <AllLists lists={lists} setLists={setLists} />
       <TodoWrapper
-        currentTodos={currentTodos}
         lists={lists}
-        activeListId={activeListId}
+        setLists={setLists}
+        todos={todos}
+        setTodos={setTodos}
       />
     </>
   );
