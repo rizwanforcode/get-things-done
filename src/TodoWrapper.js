@@ -5,7 +5,7 @@ const TodoWrapper = ({ lists, setLists, todos, setTodos }) => {
   return (
     <div className="todo-list">
       <TodoHeader lists={lists} todos={todos} />
-      {/* <TodoBody /> */}
+      <TodoBody lists={lists} todos={todos} setTodos={setTodos} />
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import DeleteStuff from "./DeleteStuff";
 import Tasks from "./Tasks";
 import AddTodo from "./AddTodo";
-const TodoBody = ({ currentTodos, activeListId }) => {
+const TodoBody = ({ lists, todos, setTodos }) => {
   return (
     <div className="todo-body">
-      <Tasks currentTodos={currentTodos} />
+      <Tasks lists={lists} todos={todos} setTodos={setTodos} />
       <AddTodo />
       <DeleteStuff />
     </div>
