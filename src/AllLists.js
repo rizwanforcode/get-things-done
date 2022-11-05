@@ -1,16 +1,19 @@
 import React from "react";
 import AddList from "./AddList";
+import { ListItem } from "./ListItem";
 
-const AllTasks = () => {
+const AllTasks = ({ lists, setLists, activeListId }) => {
   return (
     <div className="all-tasks">
       <h2 className="task-list-title">My lists</h2>
       <ul className="task-list">
-        <li className="list-name active-list">Youtube</li>
-        <li className="list-name">Work</li>
-        <li className="list-name">Grocery</li>
+        {lists
+          .sort((a, b) => a.datetime - b.datetime)
+          .map((list) => (
+            <ListItem activeListId={activeListId} list={list} key={list.id} />
+          ))}
       </ul>
-      <AddList />
+      <AddList lists={lists} setLists={setLists} />
     </div>
   );
 };

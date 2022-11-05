@@ -148,6 +148,7 @@ form {
 
 .active-list {
   font-weight: 700;
+  list-style-type: disc;
 }
 
 .todo-list {

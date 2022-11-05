@@ -1,15 +1,22 @@
 import React from "react";
 
-const Tasks = () => {
+const Tasks = ({ currentTodos }) => {
+  // Important: make the input checkbox a controlled input even though it's just a checkbox
   return (
     <div className="tasks">
-      <div className="task">
-        <input type="checkbox" id="task-1" />
-        <label for="task-1">
-          <span className="custom-checkbox"></span>
-          record todo list video
-        </label>
-      </div>
+      {currentTodos.map((todo) => (
+        <div className="task" key={todo.id}>
+          <input
+            type="checkbox"
+            id={`tasks-${todo.id}`}
+            checked={todo.completed}
+          />
+          <label for={`tasks-${todo.id}`}>
+            <span className="custom-checkbox"></span>
+            {todo.title}
+          </label>
+        </div>
+      ))}
     </div>
   );
 };

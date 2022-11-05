@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AllLists from "./AllLists";
 import Header from "./Header";
-import TodoList from "./TodoList";
+import TodoWrapper from "./TodoWrapper";
 import { addMinutes } from "date-fns";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      task: "record a todo list video",
+      title: "record a todo list video",
       datetime: new Date(),
       completed: false,
       listId: 1,
@@ -17,49 +17,60 @@ function App() {
 
     {
       id: 2,
-      task: "edit the video",
+      title: "edit the video",
       datetime: new Date(),
-      completed: false,
+      completed: true,
       listId: 1,
     },
 
     {
       id: 3,
-      task: "create the thumbnail",
+      title: "get the paperwork",
       datetime: new Date(),
       completed: false,
-      listId: 3,
+      listId: 2,
     },
   ]);
   const [lists, setLists] = useState([
     {
       id: 1,
-      listName: "Youtube",
+      title: "Youtube",
       datetime: new Date(),
       active: true,
     },
     {
       id: 2,
-      listName: "Work",
+      title: "Work",
       datetime: addMinutes(new Date(), 5),
-      active: true,
+      active: false,
     },
     {
       id: 3,
-      listName: "Grocery",
+      title: "Grocery",
       datetime: addMinutes(new Date(), 10),
-      active: true,
+      active: false,
+    },
+    {
+      id: 4,
+      title: "Assignments",
+      datetime: addMinutes(new Date(), 20),
+      active: false,
     },
   ]);
 
-  const [activeList, setActiveList] = useState(1);
-  const currentTasks = todos.filter((todo) => todo.listId === activeList);
-
+  const [activeListId, setActiveListId] = useState(
+    lists.find((list) => list.active).id
+  );
+  const currentTodos = todos.filter((todo) => todo.listId === activeListId);
   return (
     <>
       <Header title={title} />
-      <AllLists />
-      <TodoList />
+      <AllLists lists={lists} setLists={setLists} activeListId={activeListId} />
+      <TodoWrapper
+        currentTodos={currentTodos}
+        lists={lists}
+        activeListId={activeListId}
+      />
     </>
   );
 }
