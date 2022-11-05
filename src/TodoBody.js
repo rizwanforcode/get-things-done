@@ -5,7 +5,7 @@ const TodoBody = ({ lists, todos, setTodos }) => {
   return (
     <div className="todo-body">
       <Tasks lists={lists} todos={todos} setTodos={setTodos} />
-      <AddTodo />
+      <AddTodo lists={lists} todos={todos} setTodos={setTodos} />
       <DeleteStuff />
     </div>
   );
