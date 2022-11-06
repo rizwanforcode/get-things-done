@@ -36,6 +36,7 @@ const AddList = ({ lists, setLists }) => {
         onChange={(e) => {
           setNewList(e.target.value);
         }}
+        required
       />
       <button className="btn create" aria-label="create new list">
         +

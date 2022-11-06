@@ -31,6 +31,7 @@ const TasksCreator = ({ lists, todos, setTodos }) => {
           onChange={(e) => {
             setNewTask(e.target.value);
           }}
+          required
         />
         <button className="btn create" aria-label="create new task">
           +

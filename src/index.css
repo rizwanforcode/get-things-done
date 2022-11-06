@@ -63,12 +63,11 @@ form {
 
 .btn {
   cursor: pointer;
-  background: 0;
+  background-color: transparent;
   border: 0;
   padding: 0;
   color: inherit;
 }
-
 .btn.create {
   font-size: 1.5rem;
   font-weight: 900;
@@ -86,10 +85,13 @@ form {
   transition: color 200ms;
 }
 
-.btn.delete:hover {
-  color: var(--clr-warning);
+.bg-btn {
+  background: red;
+  padding: 0.5rem 1rem;
 }
-
+.bg-btn:active {
+  transform: scale(0.95);
+}
 .new {
   background: transparent;
   border: 0;

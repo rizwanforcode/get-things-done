@@ -3,7 +3,6 @@ import React from "react";
 const TodoHeader = ({ lists, todos }) => {
   const activeList = lists.find((list) => list.active);
   const { id: activeListId, title: activeListTitle } = activeList;
-  console.log(activeListId);
   const activeTodos = todos.filter((todo) => todo.listId === activeListId);
   const noOfRemainingTodos = activeTodos.filter(
     (active) => !active.completed
