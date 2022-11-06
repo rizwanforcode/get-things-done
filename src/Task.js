@@ -4,9 +4,16 @@ const Task = ({ todos, todo, setTodos }) => {
   const [defaultChecked, setDefaultChecked] = useState(todo.completed);
 
   const handleChecked = (e) => {
-    setDefaultChecked(!defaultChecked);
-    const flippedTodo = { ...todo, completed: !todo.completed };
-    setTodos(todos.map((to) => (to.id === todo.id ? flippedTodo : to)));
+    setTodos(
+      todos.map((to) =>
+        to.id === todo.id ? { ...todo, completed: !todo.completed } : to
+      )
+    );
+  };
+
+  const handleTaskDelete = () => {
+    console.log("todo");
+    setTodos(todos.filter((to) => to.id !== todo.id));
   };
 
   return (
@@ -24,6 +31,9 @@ const Task = ({ todos, todo, setTodos }) => {
           <span className="custom-checkbox"></span>
           {todo.title}
         </label>
+        <button className="delete-task-btn" onClick={handleTaskDelete}>
+          x
+        </button>
       </div>
     </div>
   );

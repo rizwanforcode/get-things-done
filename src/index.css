@@ -198,8 +198,29 @@ form {
 .task {
   position: relative;
   margin-bottom: 1.25em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
+.task:hover .delete-task-btn {
+  visibility: visible;
+}
+.delete-task-btn {
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  background: #dc3545;
+  height: 1.6rem;
+  width: 1.6rem;
+  visibility: hidden;
+  cursor: pointer;
+}
+.delete-task-btn:hover {
+  background: hsl(354, 70%, 40%);
+}
+.delete-task-btn:active {
+  transform: scale(0.9);
+}
 .task::after {
   content: "";
   position: absolute;
